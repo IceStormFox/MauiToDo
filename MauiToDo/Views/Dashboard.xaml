@@ -19,6 +19,25 @@
                 <VerticalStackLayout>
                     <Image Source="todologo.svg"/>
                 </VerticalStackLayout>
+
+                <Grid ColumnDefinitions="*, 100">
+                    <Frame Padding="10, 5" Grid.Column="0" Margin="0, 0, 10, 0">
+                        <Entry Placeholder="ToDo Item" Text="{Binding TodoEntryText}" TextColor="#333"/>
+                    </Frame>
+                    <Button Text="Add" Command="{Binding AddTodoCommand}" Grid.Column="1" TextColor="#eee" BackgroundColor="{StaticResource Primary}"
+                            IsEnabled="{Binding IsNotBusy}"/>
+                </Grid>
+                <VerticalStackLayout>
+                    <RefreshView Command="{Binding GetTodosCommand}" IsRefreshing="{Binding IsRefreshing}">
+                        <CollectionView ItemsSource="{Binding TodoList}">
+                            <CollectionView.EmptyView>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding EmptyText}" FontSize="Medium"/>
+                                </VerticalStackLayout>
+                            </CollectionView.EmptyView>
+                        </CollectionView>
+                    </RefreshView>
+                </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>
