@@ -1,0 +1,27 @@
+{
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "_partition": {
+            "bsonType": "string"
+        },
+        "completed": {
+            "bsonType": "bool"
+        },
+        "name": {
+            "bsonType": "string"
+        },
+        "owner": {
+            "bsonType": "string"
+        }
+    },
+    "required": [
+        "_id",
+        "_partition",
+        "completed",
+        "name"
+    ],
+    "title": "Todo",
+    "type": "object"
+}
