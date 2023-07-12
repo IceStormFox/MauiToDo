@@ -4,9 +4,16 @@ namespace MauiToDo.Views;
 
 public partial class Dashboard : ContentPage
 {
-	public Dashboard(DashboardVM vm)
+	DashboardVM vm;
+    public Dashboard()
 	{
 		InitializeComponent();
+		vm = new DashboardVM();
 		BindingContext = vm;
+	}
+
+	protected override async void OnAppearing()
+	{
+		await vm.InitialiseRealm();
 	}
 }

@@ -16,6 +16,7 @@ namespace MauiToDo.Models
         [MapTo("completed")]
         public bool Completed { get; set; }
         [MapTo("_partition")]
+        [Required]
         public string Partition { get; set; }
 
 

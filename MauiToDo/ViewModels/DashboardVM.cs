@@ -113,6 +113,7 @@ namespace MauiToDo.ViewModels
         [RelayCommand]
         public async void CheckTodo(Todo todo)
         {
+            IsBusy = true;
             try
             {
                 realm.Write(() =>
@@ -128,6 +129,7 @@ namespace MauiToDo.ViewModels
             {
                 await App.Current.MainPage.DisplayPromptAsync("Error", ex.Message);
             }
+            IsBusy = false;
         }
         [RelayCommand]
         async Task DeleteTask(Todo todo) 
@@ -154,9 +156,10 @@ namespace MauiToDo.ViewModels
             IsBusy = true;
             try
             {
+                var currentUserId = App.RealmApp.CurrentUser.Id;
                 await App.RealmApp.RemoveUserAsync(App.RealmApp.CurrentUser);
-                CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-                App.Current.Quit();
+                var signoutUser = App.RealmApp.AllUsers.FirstOrDefault(u => u.Id == currentUserId);
+                await Shell.Current.GoToAsync("///Login");
             }
             catch (Exception ex)
             {

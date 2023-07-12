@@ -8,6 +8,6 @@ namespace MauiToDo.ViewModels
         [NotifyPropertyChangedFor(nameof(IsNotBusy))]
         bool isBusy;
 
-        public bool IsNotBusy => !isBusy;
+        public bool IsNotBusy => !IsBusy;
     }
 }

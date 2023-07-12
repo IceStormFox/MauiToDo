@@ -8,8 +8,8 @@ namespace MauiToDo.ViewModels
     {
         public LoginPageVM()
         {
-            EmailText = "test@test.com";
-            PasswordText = "testest";
+            EmailText = "";
+            PasswordText = "";
         }
 
         [ObservableProperty] 
