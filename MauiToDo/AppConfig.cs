@@ -2,6 +2,6 @@
 {
     public static class AppConfig
     {
-        public static string RealmAppId = "maui-todo-list-vmfxn";
+        public static string RealmAppId = "appid";
     }
 }
